@@ -46,6 +46,10 @@ public class Letter
 		this.weight = weight;
 	}
 	
+	/*
+	Created a formula to determine the postage any given letter
+	depending on the ounce. The ratio is .46 cents per ounce.  
+	*/
 	public static double getPostage(double weight)
 	{
 		double postage = .46;
