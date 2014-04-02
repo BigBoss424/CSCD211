@@ -49,9 +49,11 @@ public class Letter
 	public static double getPostage(double weight)
 	{
 		double postage = .46;
+		double ounce;
 		postage = weight * postage;
 		return postage;
 	}
+	
 	public String toString()
 	{
 		return "--------------------------------------------" + "\n" +
