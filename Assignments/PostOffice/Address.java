@@ -63,10 +63,8 @@ public class Address
 	
 	public String toString()
 	{
-		return "Street: " + this.street + "\n" +
-			   "City: " + this.city + "\n" + 
-			   "Zip Code: " + this.zipCode + "\n" +
-			   "State: " + this.state;
+		return "Street" + this.street + "\n" +
+		       "City" + this.city + "," + "State" + this.state + "" + "" + "Zip Code" + this.zipCode;
 	}
 	
 
