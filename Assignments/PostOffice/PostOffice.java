@@ -20,6 +20,8 @@ public class PostOffice
 			Such as the address
 		*/
 		
+		
+		
 		while(fin.hasNext())
 		{
 			count++;
@@ -31,11 +33,27 @@ public class PostOffice
 		
 		ltrAra = new Letter[count];
 		
+		fin = FileUtil.openInputFile(filename);
+		while(fin.hasNext())
+		{
 		/*
 			to extract specific data from a file
 			toName = 
 		*/
 		
+		//how to extract the city from the third line
+		/*
+			toName = fin.nextLine();
+			toStreet = fin.nextLine();
+			sWork = fin.nextLine();
+			iWork = sWork.indexOf(",");
+			toCity = sWork.subString(0, iWork);
+			iWork = iWork + 2;
+			toState = sWork.substring(iWork, iWork + 2);
+			iWork = iWork + 3;
+			toZip = sWork.substring(iWork);
+		*/
+		}
 		
 	}
 	
