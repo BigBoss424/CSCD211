@@ -58,6 +58,12 @@ public class Letter
 		return postage;
 	}
 	
+	public int compareTo(Letter that)
+	{
+		int value;
+		value = this.addrTo.getZip().compareTo(that.addrTo.getZip());
+		
+	}
 	public String toString()
 	{
 		return "--------------------------------------------" + "\n" +
