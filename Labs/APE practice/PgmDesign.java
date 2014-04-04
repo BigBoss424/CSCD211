@@ -4,7 +4,7 @@ import java.util.*;
 public class PgmDesign
 {
 	private static Scanner fin = null;
-	private static PrintStream output;
+	private static PrintStream fout = null;
 	
 	private static boolean connectInput(String filename)
 	{
@@ -19,7 +19,7 @@ public class PgmDesign
 	
 	private static void connectOutput(String filename)
 	{
-	
+		
 	}
 	
 	private static void disconnectOutput()
@@ -29,13 +29,21 @@ public class PgmDesign
 	
 	private static String nextItem()
 	{
-	
+		
 	
 	}
 	
 	private static int readData(String[] data)
 	{
-	
+		String s = nextItem();
+		int count = 0;
+		while(s != null)
+		{
+			data[count] = s;
+			count++;
+			s = nextItem(0;
+		}
+		return count;
 	}
 	
 	public static void main(String[] args)

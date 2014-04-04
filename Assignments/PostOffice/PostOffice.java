@@ -53,18 +53,25 @@ public class PostOffice
 			iWork = iWork + 3;
 			toZip = sWork.substring(iWork);
 		*/
-		}
 		
+		ltrAra[count] = new Letter(//variable names);
+		count ++;
+		}
+		fin.close();
 	}
 	
 	public static void sortLetters(String filename)
 	{
-	
+		SortSearchUtil.selectionSort(ltrAra);
 	}
 	
 	public static void printLetters()
 	{
-	
+		for(Letter ltr : ltrAra)
+		{
+			System.out.println(ltr);
+			System.out.println();
+		}
 	}
 
 }
