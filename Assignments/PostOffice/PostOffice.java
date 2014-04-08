@@ -54,6 +54,20 @@ public class PostOffice
 			toZip = sWork.substring(iWork);
 		*/
 		
+      String toName = fin.nextLine();
+      String toStreet = fin.nextLine();
+      String sWork = fin.nextLine();
+      String iWork = sWork.indexOf(",");
+      String toCity = sWork.substring(0,iWork);
+      iWork = iWork + 2;
+      String toState = sWork.substring(iWork, iWork + 2);
+      iWork = iWork + 3;
+      toZip = sWork.substring(iWork);
+      
+      String foName = fin.nextLine();
+      String foStreet = fin.nextLine();
+      String fWork = fin.nextLine();
+      String 
 		ltrAra[count] = new Letter(//variable names);
 		count ++;
 		}
