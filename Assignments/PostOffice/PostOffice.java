@@ -6,7 +6,7 @@ public class PostOffice
 	
 	private PostOffice()
 	{
-		
+		this.letters = null;
 	}
 	
 	public static void readLetters(String filename)

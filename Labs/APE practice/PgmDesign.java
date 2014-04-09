@@ -75,6 +75,7 @@ public class PgmDesign extends Exception
       {
           fout.println(item);
       }
+      System.out.println(item);
    }
 	
 	private static int readData(String[] data)
