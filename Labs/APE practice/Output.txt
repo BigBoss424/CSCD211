@@ -1,0 +1,21 @@
+ Connection succeeded to IOin1.txt
+ Simmons
+ Hamel
+ Clark
+ Rolfe
+ Bickerstaff
+ Steele
+ Schimpf
+ Imamura
+ Taylor
+ Li
+ Xu
+ Armstrong
+ Capaul
+ Steiner
+ Lemelin
+ Pickett
+ Peters
+ Kamp
+ Connection failed to IsOin2.txt
+ Attempting to open WriteProtect.txt for output - should produce an error message.  Failed to open file...
