@@ -43,7 +43,7 @@ public class Thief extends Hero
          {
             case 1: attack(op);
                     break;
-            case 2: Omnislash(op);
+            case 2: Ambush(op);
                     break;
             default: 
                System.out.println("Pick an actual choice retard!");

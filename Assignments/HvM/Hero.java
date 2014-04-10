@@ -7,12 +7,12 @@ public abstract class Hero extends DungeonCharacter
    
    public Hero(String name, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax, double chanceToBlock)
    {
-      super(name, hitPoints, attackSpeed, chancetoHit, damageMin, damageMax);
+      super(name, hitPoints, attackSpeed, chanceToHit, damageMin, damageMax);
       this.chanceToBlock = chanceToBlock;
       readName();
    }
    
-   public void readName();
+   public void readName()
    {  Scanner kb = new Scanner(System.in);
       System.out.print("Enter character name: ");
       this.name = kb.nextLine();
@@ -27,7 +27,7 @@ public abstract class Hero extends DungeonCharacter
    {
       if(defend())
       {
-         System.out.println(this.name + "blocked the attack!");
+         System.out.println(this.name + " blocked the attack!");
       }
       else
       {

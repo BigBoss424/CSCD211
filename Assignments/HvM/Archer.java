@@ -12,12 +12,12 @@ public class Archer extends Hero
       if(Math.random() <= 0.4)
       {
          int sPoints = (int)(Math.random() * 125.0) + 100;
-         System.out.println(this.name + "uses Omnislash for " + sPoints + " damage!");
+         System.out.println(this.name + " uses Snipe for " + sPoints + " damage!");
          op.removeHitPoints(sPoints);
       }
       else
       {
-         System.out.println(this.name + "missed his opportunity for Omnislash \n");
+         System.out.println(this.name + " missed the shot \n");
       }
    }
    

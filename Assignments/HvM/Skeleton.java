@@ -7,7 +7,7 @@ public class Skeleton extends Monster
    
    public void attack(DungeonCharacter op)
    {
-      System.out.println(this.name + "sweeps his blade at" + op.getName() + ":");
+      System.out.println(this.name + " sweeps his blade at " + op.getName() + ":");
       super.attack(op);
    }
 }

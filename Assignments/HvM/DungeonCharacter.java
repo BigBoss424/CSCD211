@@ -41,7 +41,7 @@ public abstract class DungeonCharacter
       }
       else
       {
-         this.hitPoits += hitPoints;
+         this.hitPoints += hitPoints;
       }  
    }
    
@@ -58,8 +58,8 @@ public abstract class DungeonCharacter
          {
             this.hitPoints = 0;
          }
-         System.out.println(getName() + "hit" + "for" + hitPoints + "points damage.");
-         System.out.println(getName() + " now has" + getHitPoints() + "hp remaining.");
+         System.out.println(getName() + " hit" + " for " + hitPoints + " points damage.");
+         System.out.println(getName() + " now has " + getHitPoints() + " hp remaining.");
          System.out.println();
       }
       if(this.hitPoints == 0)
@@ -80,13 +80,13 @@ public abstract class DungeonCharacter
       {
          int damage = (int)(Math.random() * (this.damageMax - this.damageMin + 1)) +
          this.damageMin;
-         op.substractHitPoints(damage);
+         op.removeHitPoints(damage);
          
          System.out.println();
       }
       else
       {
-         System.out.println(getName() + "'s attack on" + op.getName() + "missed!");
+         System.out.println(getName() + " 's attack on " + op.getName() + " missed!");
          System.out.println();
       }
    }

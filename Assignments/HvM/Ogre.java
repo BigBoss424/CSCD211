@@ -7,7 +7,7 @@ public class Ogre extends Monster
    
    public void attack(DungeonCharacter op)
    {
-      System.out.println(this.name + "swings his bat at" + op.getName() + ":");
+      System.out.println(this.name + " swings his bat at " + op.getName() + ":");
       super.attack(op);
    }
 

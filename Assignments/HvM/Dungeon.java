@@ -50,34 +50,48 @@ public class Dungeon
    
    public static boolean playAgain()
    {
+      String playAgain;
       Scanner kb = new Scanner(System.in);
-      char playAgain = kb.nextChar();
+      System.out.println("Play again?");
+      playAgain = kb.next();
       
-      return ((playAgain == 'Y') || (playAgain('y')));
+      if(playAgain.equals("Yes") || (playAgain.equals("yes")))
+      {
+         return true;
+      }else
+      
+      return false;
+      //return ((playAgain == "Yes") || (playAgain("yes")));
    }
    
    public static void fight(Hero hero, Monster monster)
-   {
-      char p = 'p';
-      System.out.println(hero.getName() + "fights" + monster.getName());
+   {  Scanner kb = new Scanner(System.in);
+      String pause = "pause";
+      System.out.println(hero.getName() + " fights " + monster.getName());
       System.out.println("===========================================");
-      while((hero.isAlive()) && (monster.isAlive()) && (p != 'q'))
+      while((hero.isAlive()) && (monster.isAlive()) && (pause != "quit"))
       {
          hero.battleDecisions(monster);
          if(monster.isAlive())
          {
             monster.attack(hero);
          }
-         System.out.println("Press q to quit, any other input continues: ");
-         p = kb.nextChar();
+         System.out.println("Enter quit to quit, any other input continues: ");
+         pause = kb.nextLine();
+         if(pause.equals("Quit") || pause.equals("quit"))
+         {
+            System.out.println("You mad bro?");
+            System.exit(0);
+         }
+         
       }
       if(!monster.isAlive())
       {
-         System.out.println(hero.getName() + "VICTORY!");
+         System.out.println(hero.getName() + " is Victorious!");
       }
       else if(!hero.isAlive())
       {
-         System.out.println(hero.getName() + "DEATH!");
+         System.out.println(hero.getName() + " DEATH!");
       }
       else
       {

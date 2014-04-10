@@ -7,7 +7,7 @@ public class Gremlin extends Monster
    
    public void attack(DungeonCharacter op)
    {
-      System.out.println(this.name + "lunges his punch at" + op.getName() + ":");
+      System.out.println(this.name + " lunges his punch at" + op.getName() + ":");
       super.attack(op);
    }
 }

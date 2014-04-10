@@ -17,13 +17,13 @@ public class Warrior extends Hero
       }
       else
       {
-         System.out.println(this.name + "missed his opportunity for Omnislash \n");
+         System.out.println(this.name + " missed his opportunity for Omnislash \n");
       }
    }
    
    public void attack(DungeonCharacter op)
    {
-      System.out.println(this.name + "swings his greatsword at " + op.getName() + ":");
+      System.out.println(this.name + " swings his greatsword at " + op.getName() + ":");
       super.attack(op);
    }
    

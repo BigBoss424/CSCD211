@@ -10,10 +10,10 @@ public class Sorceress extends Hero
       super("Sorceress", 75, 5, 0.7, 25, 50, 0.3);
    }
    
-   public void healHitPoints()
+   public void Heal()
    {
       int hp = (int)(Math.random() * 26.0) + 25;
-      addHitpoints(hp);
+      addHitPoints(hp);
       System.out.println(this.name + " added (" + hp + ") points.\n" +
                          "Remaining hitpoints: " + this.hitPoints);
       System.out.println();                   
@@ -40,7 +40,7 @@ public class Sorceress extends Hero
          {
             case 1: attack(op);
                     break;
-            case 2: Omnislash(op);
+            case 2: Heal();
                     break;
             default: 
                System.out.println("Pick an actual choice retard!");
@@ -50,6 +50,6 @@ public class Sorceress extends Hero
          {
             System.out.println("Number of turns remaining: " + this.numTurns);
          }
-      }while((this.numTurns > 0) && (this.hitPoints >0) && (op.hitPoints() > 0));
+      }while((this.numTurns > 0) && (this.hitPoints >0) && (op.hitPoints > 0));
    }
 }//end class
