@@ -53,7 +53,7 @@ public class Dungeon
       Scanner kb = new Scanner(System.in);
       char playAgain = kb.nextChar();
       
-      return (playAgain == 'Y') || (playAgain('y');
+      return ((playAgain == 'Y') || (playAgain('y')));
    }
    
    public static void fight(Hero hero, Monster monster)

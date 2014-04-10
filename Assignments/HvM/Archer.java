@@ -1,17 +1,17 @@
 import java.util.Scanner;
 
-public class Warrior extends Hero
+public class Archer extends Hero
 {
-   public Warrior()
+   public Archer()
    {
-      super("Warrior", 125, 4, 0.8, 35, 60, 0.2);
+      super("Archer", 100, 4, 0.8, 35, 75, 0.5);
    }
    
-   public void Omnislash(DungeonCharacter op)
+   public void Snipe(DungeonCharacter op)
    {
       if(Math.random() <= 0.4)
       {
-         int sPoints = (int)(Math.random() * 76.0) + 100;
+         int sPoints = (int)(Math.random() * 125.0) + 100;
          System.out.println(this.name + "uses Omnislash for " + sPoints + " damage!");
          op.removeHitPoints(sPoints);
       }
@@ -35,14 +35,14 @@ public class Warrior extends Hero
       do
       {
          System.out.println("1) Attack Opponent");
-         System.out.println("2) Omnislash");
+         System.out.println("2) Snipe");
          System.out.println("Make your Decision!: ");
          int choice = kb.nextInt();
          switch(choice)
          {
             case 1: attack(op);
                     break;
-            case 2: Omnislash(op);
+            case 2: Snipe(op);
                     break;
             default: 
                System.out.println("Pick an actual choice retard!");

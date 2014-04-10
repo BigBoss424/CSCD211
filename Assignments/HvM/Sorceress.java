@@ -1,33 +1,31 @@
 import java.util.Scanner;
 
-public class Warrior extends Hero
-{
-   public Warrior()
+public class Sorceress extends Hero
+{  
+   public final int MIN_HEAL = 25;
+   public final int MAX_HEAL = 50;
+   
+   public Sorceress()
    {
-      super("Warrior", 125, 4, 0.8, 35, 60, 0.2);
+      super("Sorceress", 75, 5, 0.7, 25, 50, 0.3);
    }
    
-   public void Omnislash(DungeonCharacter op)
+   public void healHitPoints()
    {
-      if(Math.random() <= 0.4)
-      {
-         int sPoints = (int)(Math.random() * 76.0) + 100;
-         System.out.println(this.name + "uses Omnislash for " + sPoints + " damage!");
-         op.removeHitPoints(sPoints);
-      }
-      else
-      {
-         System.out.println(this.name + "missed his opportunity for Omnislash \n");
-      }
+      int hp = (int)(Math.random() * 26.0) + 25;
+      addHitpoints(hp);
+      System.out.println(this.name + " added (" + hp + ") points.\n" +
+                         "Remaining hitpoints: " + this.hitPoints);
+      System.out.println();                   
    }
    
    public void attack(DungeonCharacter op)
    {
-      System.out.println(this.name + "swings his greatsword at " + op.getName() + ":");
+      System.out.println(this.name + " summons a fireball and directs it at" + op.getName() + ":");
       super.attack(op);
    }
    
-   public void battleDecisions(DungeonCharacter op)
+  public void battleDecisions(DungeonCharacter op)
    {
       Scanner kb = new Scanner(System.in);
       
@@ -35,7 +33,7 @@ public class Warrior extends Hero
       do
       {
          System.out.println("1) Attack Opponent");
-         System.out.println("2) Omnislash");
+         System.out.println("2) Heal");
          System.out.println("Make your Decision!: ");
          int choice = kb.nextInt();
          switch(choice)
@@ -52,6 +50,6 @@ public class Warrior extends Hero
          {
             System.out.println("Number of turns remaining: " + this.numTurns);
          }
-      }while(this.numTurns > 0);
+      }while((this.numTurns > 0) && (this.hitPoints >0) && (op.hitPoints() > 0));
    }
-}
+}//end class

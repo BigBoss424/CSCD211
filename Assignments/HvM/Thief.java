@@ -1,32 +1,33 @@
 import java.util.Scanner;
 
-public class Warrior extends Hero
+public class Thief extends Hero
 {
-   public Warrior()
+   public Thief()
    {
-      super("Warrior", 125, 4, 0.8, 35, 60, 0.2);
+      super("Thief", 75, 6, 0.8, 20, 40, 0.5);
    }
    
-   public void Omnislash(DungeonCharacter op)
+   public void Ambush(DungeonCharacter op)
    {
-      if(Math.random() <= 0.4)
+      double ambush = Math.random();
+      if(ambush <= 0.4)
       {
-         int sPoints = (int)(Math.random() * 76.0) + 100;
-         System.out.println(this.name + "uses Omnislash for " + sPoints + " damage!");
-         op.removeHitPoints(sPoints);
+         System.out.println("Ambush was successful!\n" +
+                            this.name + "get ready for another turn!");
+         this.numTurns += 1;
+         attack(op);                   
+      }
+      else if(ambush >= 0.9)
+      {
+         System.out.println("!" + op.getName() + "is alerted of your prescence!" + 
+                        "\n Countered");
       }
       else
       {
-         System.out.println(this.name + "missed his opportunity for Omnislash \n");
+         attack(op);
       }
    }
-   
-   public void attack(DungeonCharacter op)
-   {
-      System.out.println(this.name + "swings his greatsword at " + op.getName() + ":");
-      super.attack(op);
-   }
-   
+
    public void battleDecisions(DungeonCharacter op)
    {
       Scanner kb = new Scanner(System.in);
@@ -35,7 +36,7 @@ public class Warrior extends Hero
       do
       {
          System.out.println("1) Attack Opponent");
-         System.out.println("2) Omnislash");
+         System.out.println("2) Ambush");
          System.out.println("Make your Decision!: ");
          int choice = kb.nextInt();
          switch(choice)
@@ -54,4 +55,4 @@ public class Warrior extends Hero
          }
       }while(this.numTurns > 0);
    }
-}
+}//end class
