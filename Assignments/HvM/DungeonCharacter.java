@@ -1,31 +1,26 @@
 public abstract class DungeonCharacter
 {
-   protected int hitPoints,
-                 attackSpeed,
-                 minDamage,
-                 maxDamage;
-   protected double chanceToHit;
    protected String name;
+   protected int hitPoints;
+   protected int attackSpeed;
+   protected double chanceToHit;
+   protected int damageMin;
+   protected int damageMax;
    
-   public DungeonCharacter(String name, int hp, int as, int maxd, int mind, double c2hit)
+   public DungeonCharacter(String name, int hitPoints, int attackSpeed, double chanceToHit, int damageMin, int damageMax)
    {
       this.name = name;
-      this.hitPoints = hp;
-      this.minDamage = mind;
-      this.maxDamage = maxd;
-      this.chanceToHit = c2hit;
-      this.attackSpeed = as;
+      this.hitPoints = hitPoints;
+      this.attackSpeed = attackSpeed;
+      this.chanceToHit = chanceToHit;
+      this.damageMin = damageMin;
+      this.damageMax = damageMax;
    
-   }
+   } 
    
    public String getName()
    {
       return this.name;
-   }
-   
-   public void setName(String name)
-   {
-      this.name = name;
    }
    
    public int getHitPoints()
@@ -33,49 +28,44 @@ public abstract class DungeonCharacter
       return this.hitPoints;
    }
    
-   public void setHitPoints(int hitPoints)
-   {
-      this.hitPoints = hitPoints;
-   }
-   
    public int getAttackSpeed()
    {
       return this.attackSpeed;
    }
    
-   public void setAttackSpeed(int attackSpeed)
+   public void addHitPoints(int hitPoints)
    {
-      this.attackSpeed = attackSpeed;
+      if(hitPoints <= 0)
+      {
+         System.out.println("Hitpoint amount must be positive.");
+      }
+      else
+      {
+         this.hitPoits += hitPoints;
+      }  
    }
    
-   public int getMinDamage()
+   public void removeHitPoints(int hitPoints)
    {
-      return this.minDamage;
-   }
-   
-   public void setMinDamage(int minDamage)
-   {
-      this.minDamage = minDamage;
-   }
-   
-   public int getMaxDamage()
-   {
-      return this.maxDamage;
-   }
-   
-   public void setMaxDamage(int maxDamage)
-   {
-      this.maxDamage = maxDamage;
-   }
-   
-   public double getChance2Hit()
-   {
-      return this.chanceToHit;
-   }
-   
-   public void setChance2Hit(double chance2Hit)
-   {
-      this.chanceToHit = chance2hit;
+      if(hitPoints < 0)
+      {
+         System.out.println("Hitpoint amount must be positive.");
+      }
+      else if(hitPoints > 0)
+      {
+         this.hitPoints -= hitPoints;
+         if(this.hitPoints < 0)
+         {
+            this.hitPoints = 0;
+         }
+         System.out.println(getName() + "hit" + "for" + hitPoints + "points damage.");
+         System.out.println(getName() + " now has" + getHitPoints() + "hp remaining.");
+         System.out.println();
+      }
+      if(this.hitPoints == 0)
+      {
+         System.out.println(this.name + " has been exterminated");
+      }
    }
    
    public boolean isAlive()
@@ -83,7 +73,21 @@ public abstract class DungeonCharacter
       return this.hitPoints > 0;
    }
    
-   
-   
-
+   public void attack(DungeonCharacter op)
+   {
+      boolean canAttack = Math.random() <= this.chanceToHit;
+      if(canAttack)
+      {
+         int damage = (int)(Math.random() * (this.damageMax - this.damageMin + 1)) +
+         this.damageMin;
+         op.substractHitPoints(damage);
+         
+         System.out.println();
+      }
+      else
+      {
+         System.out.println(getName() + "'s attack on" + op.getName() + "missed!");
+         System.out.println();
+      }
+   }
 }//end DungeonCharacter
