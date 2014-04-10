@@ -1,3 +1,15 @@
+/*
+Name: Aaron Jones
+Date: 4/10/2014
+Description: This is the Warrior class in which is the child class of Hero. In this class
+I gave it a special attack called Omnislash (FFVII reference lol). As well as the implementation 
+of the Battle Decisions method which allows the user based upon the attacks and decisions that the
+user can use in battle using a switch case structure. This class is basically the reference for all
+the Hero class except for Sorceress. For my mental state I would rather not get points docked off for
+not having a description in each Hero class. Since they're all pretty much the same except for a few 
+minor differences such as the heal method in Sorceress, ambush method in Thief, and the Snipe method 
+in Archer which is just Omnislash except with more damage (headshot lol). 
+*/
 import java.util.Scanner;
 
 public class Warrior extends Hero

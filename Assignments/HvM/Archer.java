@@ -1,3 +1,9 @@
+/*
+Name: Aaron Jones
+Date: 4/10/2014
+Description: This is the Archer class which is the extra hero that I decided to do for the extra
+credit. Everything works for the most part. 
+*/
 import java.util.Scanner;
 
 public class Archer extends Hero
@@ -12,7 +18,7 @@ public class Archer extends Hero
       if(Math.random() <= 0.4)
       {
          int sPoints = (int)(Math.random() * 125.0) + 100;
-         System.out.println(this.name + " uses Snipe for " + sPoints + " damage!");
+         System.out.println(this.name + " uses Snipe for " + sPoints + " headshot damage!");
          op.removeHitPoints(sPoints);
       }
       else

@@ -1,3 +1,10 @@
+/*
+Name: Aaron Jones
+Date: 4/10/2014
+Description: This class is the Hero class which extends the DungeonCharacter class. This class
+includes a EVC, and a way to read the users name (readname() method), the battleDecisions modified
+for the us in this class which determines how many turns each character gets based upon their stats.  
+*/
 import java.util.Scanner;
 
 public abstract class Hero extends DungeonCharacter

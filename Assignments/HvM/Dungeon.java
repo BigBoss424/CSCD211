@@ -1,3 +1,10 @@
+/*
+Name: Aaron Jones
+Date: 4/10/2014
+Description: This is the main class in which the user is allowed to choose their hero as 
+well as whether or not they want to play again. Also includes the fight sequence which can 
+be found in the fight() method which is included in this class. 
+*/
 import java.util.Scanner;
 
 public class Dungeon
