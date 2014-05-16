@@ -8,15 +8,7 @@
       public static boolean array220(int[] nums, int index) 
       {	  
       //  Your code goes here...
-      
-      
-      
-		
-		
-      
-      
-      
-      
+         
       
       }
    

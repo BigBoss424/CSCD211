@@ -12,15 +12,17 @@
       {
       //  Your code goes here...
       
-      
-      
-		
-		
-		
-		
-		
-      
-      
+         if(n == 0)
+         {
+            return;
+         }
+         
+         if(n%2 == 0)
+         {
+            rec3nPlus1(n/2);
+         }
+         else
+            rec3nPlus1((n * 3) + 1);
       
       }
    }
