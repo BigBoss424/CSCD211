@@ -5,7 +5,7 @@ import java.util.*;
  */  
 
  
-public abstract class Transaction            // <--  Your code goes here
+public abstract class Transaction implements Comparable<Transaction>           // <--  Your code goes here
 {
 	// Note the tranID variable is private - do not change
 	private   int  tranID;
@@ -33,7 +33,23 @@ public abstract class Transaction            // <--  Your code goes here
 	 
 	 //  Your code goes here...
 	 
-	 
+    @Override
+	 public int compareTo(Transaction that)
+    {
+      if(this.participantID > that.participantID)
+         return 1;
+      else if(participantID < that.participantID)
+         return -1;
+      else if(this.participantID == that.participantID)
+         {
+            if(this.transID > that.transID)
+               return 1;
+            else if(transID < that.transID)
+               return -1;
+         }
+      else
+         return 0;
+     }
 	   
 	
 	
