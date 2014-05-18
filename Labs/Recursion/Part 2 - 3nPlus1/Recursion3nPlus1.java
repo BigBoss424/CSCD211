@@ -11,18 +11,21 @@
       public static void rec3nPlus1(int n)
       {
       //  Your code goes here...
-      
-         if(n == 0)
+         System.out.print(n + " ");
+         if(n == 1)
          {
             return;
          }
-         
-         if(n%2 == 0)
+         else if(n%2 == 0)
          {
-            rec3nPlus1(n/2);
+               
+           rec3nPlus1(n/2);
          }
-         else
-            rec3nPlus1((n * 3) + 1);
+         else if(n%2 != 0)
+         {
+           rec3nPlus1((n * 3) + 1);
+         }
+         
       
       }
    }
