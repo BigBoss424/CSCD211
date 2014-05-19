@@ -19,11 +19,12 @@
          {
             return false;
          }
-         else if(nums[index] == nums[index*10])
-         {
-            return true;
-         }
-         return array220(nums, index);
+         if(index+1 < nums.length && nums[index] == nums[index+1]/10)
+           return true;
+         else if(index+1 < nums.length)
+            return array220(nums, index+1);
+         
+         return false;
       }
    
    
