@@ -19,7 +19,7 @@
          {
             return false;
          }
-         if(index+1 < n && nums[index] == nums[index+1]/10)
+         if(index+1 < n && nums[index]*10 == nums[index+1])
            return true;
          else if(index+1 < n)
             return array220(nums, index+1);
