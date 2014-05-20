@@ -19,9 +19,9 @@
          {
             return false;
          }
-         if(index+1 < nums.length && nums[index] == nums[index+1]/10)
+         if(index+1 < n && nums[index] == nums[index+1]/10)
            return true;
-         else if(index+1 < nums.length)
+         else if(index+1 < n)
             return array220(nums, index+1);
          
          return false;
