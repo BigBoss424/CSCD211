@@ -1,19 +1,26 @@
 import java.util.*;
 
 
-public class Address
+public class Address implements Comparable<Address>
 {
 	private String street;
 	private String city;
 	private String zipCode;
 	private String state;
 	
-	public Address(String street, String city, String state, String zip)
+	public Address(String street, String other)
 	{
+		int x;
 		this.street = street;
-		this.city = city;
-		this.state = state;
-      this.zipCode = zip;
+
+		x = other.indexOf(",");
+		this.city = other.substring(0, x).trim();
+
+		x += 2;
+		this.state = other.substring(x, x + 2).trim();
+
+		x = other.indexOf("  ");
+		this.zipCode = other.substring(x).trim();
 	}
 	
 	public String getStreet()
@@ -56,11 +63,15 @@ public class Address
 		this.state = state;
 	}
 	
+   public int compareTo(Address that)
+   {
+      return (this.zipCode.compareTo(that.zipCode) == 0) ? this.street.compareTo(that.street) : this.zipCode.compareTo(that.zipCode);
+   }
+   
+  @Override
 	public String toString()
 	{
-      String result;
-      result = String.format("%s\n%s, %s %s", street, city, state, zipCode);
-      return result;
+		return this.street + "\n" + this.city + ", " + this.state + "  " + this.zipCode;
 	}
 	
 

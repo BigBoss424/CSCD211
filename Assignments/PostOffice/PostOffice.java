@@ -5,9 +5,8 @@ import java.io.IOException;
 
 public class PostOffice{
 
-private final int MAX = 1000;
-private Letter[] letterArray = new Letter[MAX];
-private int count;
+private Letter[] letterArray;
+private int count = 0;
 
    public PostOffice()
    {
@@ -15,9 +14,9 @@ private int count;
       this.count = 0;
    }
    
-   public void readLetters(String filename)
+   public void readLetters(String filename) throws IOException
    {
-      String toName, toStreet, toCity, toState, toZip;
+     /* String toName, toStreet, toCity, toState, toZip;
       String fromName, fromStreet, fromCity, fromState, fromZip, temp;
       double weight;
       int index;
@@ -55,12 +54,39 @@ private int count;
             this.letterArray[count -1] = l;
          }      
       }
-      s.close();
+      s.close();*/
+      
+      Scanner fin = new Scanner(new File(filename));
+      
+      int lineCount = countLines(filename);
+      this.count = lineCount /7;
+      
+      letterArray = new Letter[count];
+      
+      for(int i = 0; i < this.count; i++)
+      {
+         letterArray[i] = new Letter( 
+                                  fin.nextLine(), fin.nextLine() + "\n" + fin.nextLine(),
+                                  fin.nextLine(), fin.nextLine() + "\n" + fin.nextLine(),
+                                  new Double(fin.nextLine().trim()));
+      }
+      
    }
    
    public void sortLetters()
    {
-      SortSearchUtil.selectionSort(letterArray);
+      for(int index = 1; index < letterArray.length; index++)
+      {
+         Letter key = letterArray[index];
+         int position = index;
+         
+         while(position > 0 && key.compareTo(letterArray[position -1]) < 1)
+         {
+            letterArray[position] = letterArray[position - 1];
+            position--;
+         }
+         letterArray[position] = key;
+      }
    }
    
    public void printLetters()
@@ -70,5 +96,20 @@ private int count;
          System.out.println(ltr);
          System.out.println();
       }
+   }
+   
+   private static int countLines(String file) throws IOException
+   {
+      int count = 0;
+      Scanner fin = new Scanner(new File(file));
+      
+      while(fin.hasNextLine())
+      {
+         fin.nextLine();
+         count++;
+      }
+      fin.close();
+      return count;
+   
    }
 }
