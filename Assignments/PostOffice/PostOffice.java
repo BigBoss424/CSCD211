@@ -21,10 +21,16 @@ private int count;
       String fromName, fromStreet, fromCity, fromState, fromZip, temp;
       double weight;
       int index;
-      Scanner s = new Scanner(filename);
+      Scanner s = null;
+      try{
+         s = new Scanner(new File(filename));
+      }catch(FileNotFoundException ex)
+      {
+        System.out.println("No file");
+      }
       if(s != null)
       {
-         while(s.hasNext())
+         while(s.hasNextLine())
          {
             toName = s.nextLine();
             toStreet = s.nextLine();
