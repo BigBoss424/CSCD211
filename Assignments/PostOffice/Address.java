@@ -5,23 +5,15 @@ public class Address
 	private String zipCode;
 	private String state;
 	
-	public Address()
-	{
-		this.street = "";
-		this.city = "";
-		this.zipCode = "";
-		this.state = "";
-	}
-	
-	public Address(String street, String city, String zipCode, String state)
+	public Address(String street, String city, String state, String zip)
 	{
 		this.street = street;
 		this.city = city;
-		this.zipCode = zipCode;
 		this.state = state;
+      this.zipCode = zip;
 	}
 	
-	public String getStreet(String street)
+	public String getStreet()
 	{
 		return this.street;
 	}
@@ -31,9 +23,9 @@ public class Address
 		this.street = street;
 	}
 	
-	public String getCity(String city)
+	public String getCity()
 	{
-		return this.city;
+		return city;
 	}
 	
 	public void setCity(String city)
@@ -41,7 +33,7 @@ public class Address
 		this.city = city;
 	}
 	
-	public String getZipCode(String zipCode)
+	public String getZipCode()
 	{
 		return zipCode;
 	}
@@ -51,7 +43,7 @@ public class Address
 		this.zipCode = zipCode;
 	}
 	
-	public String getState(String state)
+	public String getState()
 	{
 		return state;
 	}
@@ -63,8 +55,9 @@ public class Address
 	
 	public String toString()
 	{
-		return "Street" + this.street + "\n" +
-		       "City" + this.city + "," + "State" + this.state + "" + "" + "Zip Code" + this.zipCode;
+      String result;
+      result = String.format("%s\n%s, %s %s", street, city, state, zipCode);
+      return result;
 	}
 	
 

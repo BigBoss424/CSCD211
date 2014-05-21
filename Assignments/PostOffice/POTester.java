@@ -5,9 +5,11 @@ public class POTester
 
    public static void main(String [] args)
    {
-      Scanner kb = new Scanner(System.in);
+      PostOffice postOffice = new PostOffice();
       
-      System.out.println("Test");
+      postOffice.readLetters("letters.in");
+      postOffice.sortLetters();
+      postOffice.printLetters();
    }
 
 }

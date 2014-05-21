@@ -1,74 +1,46 @@
-public class Letter
+public class Letter extends PostOffice implements Comparable<Letter>
 {
-	private String tName;
-	private Address tAddress;
-	private String fName;
-	private Address fAddress;
-	private double weight; //in ounces
-	
-	public Letter(String tName, Address tAddress, 
-	String fName, Address fAddress, Double weight)
-	{
-		this.tName = tName;
-		this.fName = fName;
-		this.fAddress = fAddress;
-		this.tAddress = tAddress;
-		this.weight = weight;
-	}
-	
-	public String getTname(String tName)
-	{
-		return tName;
-	}
-	
-	public void setTname(String tName)
-	{
-		this.tName = tName;
-	}
-	
-	public String getFname(String fName)
-	{
-		return fName;
-	}
-	
-	public void setFname(String fName)
-	{
-		this.fName = fName;
-	}
-	
-	public double getWeight(double weight)
-	{
-		return weight;
-	}
-	
-	public void setWeight(double weight)
-	{
-		this.weight = weight;
-	}
-	
-	/*
-	Created a formula to determine the postage any given letter
-	depending on the ounce. The ratio is .46 cents per ounce.  
-	*/
-	public static double getPostage(double weight)
-	{
-		double postage = .46;
-		double ounce;
-		postage = weight * postage;
-		return postage;
-	}
-	
-	public int compareTo(Letter that)
-	{
-		int value;
-		value = this.addrTo.getZip().compareTo(that.addrTo.getZip());
-		
-	}
-	public String toString()
-	{
-		return "--------------------------------------------" + "\n" +
-			   "-------------" + "\n" + 
-			   "From: " + this.fName + "\n" + 
-			   this.tAddress.toString() + "\t\t\t"+ "Postage" + getPostage();
-	}
+   private static final double POSTAGE_RATE = 0.46;
+   private String fromName;
+   private Address fromAddr;
+   private String toName;
+   private Address toAddr;
+   private double weight;
+   
+   public Letter(String fromName, String fromStreet, String fromCity, String fromState, String fromZip, String toName,
+                 String toStreet, String toCity, String toState, String toZip, double weight)
+   {
+      this.fromName = fromName;
+      this.fromAddr = new Address(fromStreet, fromCity, fromState, fromZip);
+      this.toName = toName;
+      this.toAddr = new Address(toStreet, toCity, toState, toZip);
+      this.weight = weight;   
+   
+   }
+   
+   public String toString()
+   {
+      String result;
+      result = String.format("from: %\t\t\t%5.2f\n%s", fromName, getPostage(weight),fromAddr);
+      result = result + String.format("\t\t To: %s\n\t\t%s", toName, toAddr);
+      return result;
+   
+   }
+   
+   public int compareTo(Letter that) 
+   {
+      int value;
+      value = this.toAddr.getZip().compareTo(that.toAddr.getZip());
+      return value;
+   }
+
+   
+   public static double getPostage(double weight)
+   {
+      double workWeight;
+      workWeight = weight + 0.999;
+      workWeight = (int)workWeight;
+      return workWeight * POSTAGE_RATE;
+   }
+
 }

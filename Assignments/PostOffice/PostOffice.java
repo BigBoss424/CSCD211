@@ -1,91 +1,68 @@
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
-public class PostOffice
-{
-	Letter[] letters = new Letter();
-	
-	private PostOffice()
-	{
-		this.letters = null;
-	}
-	
-	public static void readLetters(String filename)
-	{
-		String sWork;
-		int iWork = 0;
-		int count = 0;
-		
-		//Create Strings for each variable
-		/*
-			Such as the address
-		*/
-		
-		
-		
-		while(fin.hasNext())
-		{
-			count++;
-			fin.nextLine();
-		}
-		fin.close();
-		
-		count = count / 7;
-		
-		ltrAra = new Letter[count];
-		
-		fin = FileUtil.openInputFile(filename);
-		while(fin.hasNext())
-		{
-		/*
-			to extract specific data from a file
-			toName = 
-		*/
-		
-		//how to extract the city from the third line
-		/*
-			toName = fin.nextLine();
-			toStreet = fin.nextLine();
-			sWork = fin.nextLine();
-			iWork = sWork.indexOf(",");
-			toCity = sWork.subString(0, iWork);
-			iWork = iWork + 2;
-			toState = sWork.substring(iWork, iWork + 2);
-			iWork = iWork + 3;
-			toZip = sWork.substring(iWork);
-		*/
-		
-      String toName = fin.nextLine();
-      String toStreet = fin.nextLine();
-      String sWork = fin.nextLine();
-      String iWork = sWork.indexOf(",");
-      String toCity = sWork.substring(0,iWork);
-      iWork = iWork + 2;
-      String toState = sWork.substring(iWork, iWork + 2);
-      iWork = iWork + 3;
-      toZip = sWork.substring(iWork);
-      
-      String foName = fin.nextLine();
-      String foStreet = fin.nextLine();
-      String fWork = fin.nextLine();
-      String 
-		ltrAra[count] = new Letter(//variable names);
-		count ++;
-		}
-		fin.close();
-	}
-	
-	public static void sortLetters(String filename)
-	{
-		SortSearchUtil.selectionSort(ltrAra);
-	}
-	
-	public static void printLetters()
-	{
-		for(Letter ltr : ltrAra)
-		{
-			System.out.println(ltr);
-			System.out.println();
-		}
-	}
+public class PostOffice{
 
+private final int MAX = 1000;
+private Letter[] letterArray = new Letter[MAX];
+private int count;
+
+   public PostOffice()
+   {
+      Letter [] myLetters = letterArray;
+      this.count = 0;
+   }
+   
+   public void readLetters(String filename)
+   {
+      String toName, toStreet, toCity, toState, toZip;
+      String fromName, fromStreet, fromCity, fromState, fromZip, temp;
+      double weight;
+      int index;
+      Scanner s = new Scanner(filename);
+      if(s != null)
+      {
+         while(s.hasNext())
+         {
+            toName = s.nextLine();
+            toStreet = s.nextLine();
+            temp = s.nextLine();
+            index = temp.indexOf(",");
+            toCity = temp.substring(0,index);
+            index = index + 2;
+            toState = temp.substring(index, index + 2);
+            toZip = temp.substring(index);
+            fromName = s.nextLine();
+            fromStreet = s.nextLine();
+            temp = s.nextLine();
+            index = temp.indexOf(",");
+            fromCity = temp.substring(0,index);
+            index = index + 2;
+            fromState = temp.substring(index, index+2);
+            fromZip = temp.substring(index);
+            String var = s.nextLine();
+            weight = Double.parseDouble(var);
+            Letter l = new Letter(toName, toStreet, toCity, toState, toZip, fromName, fromStreet, fromCity, fromState, fromZip, weight);            
+            this.count += 1;
+            this.letterArray[count -1] = l;
+         }      
+      }
+      s.close();
+   }
+   
+   public void sortLetters()
+   {
+      SortSearchUtil.selectionSort(letterArray);
+   }
+   
+   public void printLetters()
+   {
+      for(Letter ltr : letterArray)
+      {
+         System.out.println(ltr);
+         System.out.println();
+      }
+   }
 }
