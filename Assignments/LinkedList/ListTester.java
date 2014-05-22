@@ -6,6 +6,10 @@ displayMenu() method to display the 9 choices to manipulate the LinkedList. The
 LinkedList class has all the methods in it to run the given options in the menu.
 From generating a new Linked List to deleting certain values.
 */
+
+/*
+NOTE: Extra Credit was attempted!
+*/
 import java.util.Scanner;
 
 public class ListTester
