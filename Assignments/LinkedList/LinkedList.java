@@ -1,111 +1,159 @@
-public class LinkedList implements ListInterface
+import java.util.Random;
+
+public class LinkedList 
 {
    private Node head;
-   private int numItems;
+   private int size = 0;
+   private static Random rand = new Random();
    
-   public LinkedList()
-   {
-      head = null;
-      numItems = 0;
-   }
    
-   @Override
-   public boolean isEmpty()
+   public void generateList(int size)
    {
-      return numItems == 0;
-   }
-   
-   @Override
-   public int getSize()
-   {
-      return numItems;
-   }
-   
-   @Override
-   public void addNode(Object newItem)
-   {
-      Node newNode = new Node(newItem);
-      Node curr;
+      if(size < 0)
+        throw new IllegalArgumentException("List cannot contain negative values");
+      clear();
       
-      if(isEmpty())
+      for(int i = 0; i < size; i++)
       {
-         this.head = newNode;
+         add(new Integer(rand.nextInt(100)));
+      }  
+        
+   }
+   
+   public void add(Integer val)
+   {
+      Node n = head;
+      
+      if(head == null)
+      {
+         head = new Node(val);
+      }
+      else if(val.compareTo(head.data) < 0)
+      {
+         head = new Node(val, head);
       }
       else
       {
-         for(curr = head;
-             curr.getNext() != null;
-             curr = curr.getNext());
-         curr.setNext(newNode);
+         while(n != null && n.next != null)
+         {
+            if(val.compareTo(n.next.data) < 0)
+               break;
+               
+             n = n.next;
+         }
+         
+         n.next = new Node(val, n.next);
       }
-      numItems++;
+      this.size++;
    }
    
-   @Override
-   public void addNode(int index, Object newItem)
+   public void print()
    {
-      Node newNode = new Node(newItem);
-      Node prev;
+      Node n = head;
+      while(n != null)
+      {
+         System.out.println(n);
+         n = n.next;
+      }
+   }
+   public void printReversed()
+   {
+      printReversed(head);
+   }
+   
+   private void printReversed(Node n)
+   {
+      if(n == null)
+         return;
+         
+      printReversed(n.next);
+      System.out.println(n);
+   }
+   
+   public void printNth(int offset)
+   {
+      if(offset < 1)
+         throw new IllegalArgumentException("Lowest possible number is 1.");
+      Node n = head;
+      int c = 0;
       
-      if(index == 1)
+      while(n != null)
       {
-         newNode.setNext(head);
-         this.head = newNode;
+         if(c%offset == 0)
+            System.out.println(n);
+            
+           c++;
+           n = n.next;
       }
-      else
-      {
-         prev = find(index -1);
-         newNode.setNext(prev.getNext());
-         prev.setNext(newNode);
-      }
-      numItems++;
    }
    
-   @Override
-   public void removeNode(int index)
+   public LinkedList getEvens()
    {
-      if(index == 1)
-      {
-         head = head.getNext();
-      }
-      else
-      {
-         Node prev = find(index -1);
-         Node curr = prev.getNext();
-         prev.setNext(curr.getNext());
-      }
-      numItems--;
+      LinkedList result = new LinkedList();
+      Node n = head;
       
-   }
-   
-   @Override
-   public void removeAll()
-   {
-      this.head = null;
-      numItems = 0;
-   }
-   
-   private Node find(int index)
-   {
-      Node curr = head;
-      
-      for(int skip = 1; skip < index; skip++)
+      while(n != null)
       {
-         curr = curr.getNext();
-      }
-      return curr;
-   }
-   
-   @Override
-   public String toString()
-   {
-      String result = "";
-      
-      for(Node curr = this.head; curr != null; curr = curr.getNext())
-      {
-         result = result + curr.getItem().toString() + "\n";
+         if(n.data %2 == 0)
+            result.add(n.data);
+            
+            n = n.next;
       }
       
       return result;
    }
+   
+   public int deleteValue(Integer val)
+   {
+      Node n = head;
+      int c = 0;
+      
+      while(n != null && n.next != null)
+      {
+         if(n.next.data.equals(val))
+         {
+            n.next = n.next.next;
+            c++;
+            this.size--;
+         }
+         else
+            n = n.next;
+      }
+      return c;
+   }
+   
+   public void clear()
+   {
+      head = null;
+      size = 0;
+   }
+   
+   public int getSize()
+   {
+      return size;
+   }
+   
+   private class Node
+   {
+      public Integer data;
+      public Node next;
+   
+      public Node(Integer data)
+      {
+         this(data,null);
+      }
+      
+      public Node(Integer data, Node next)
+      {
+         this.data = data;
+         this.next = next;
+      }
+      
+      @Override
+      public String toString()
+      {
+         return data.toString();
+      }
+   }
+   
 }
