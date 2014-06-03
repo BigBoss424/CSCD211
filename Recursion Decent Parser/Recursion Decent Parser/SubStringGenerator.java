@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SubStringGenerator 
+public class SubStringGenerator
 {
    private static String string;
    
@@ -22,7 +22,7 @@ public class SubStringGenerator
    //code achieved thanks to the help of Cody Dickinson
    public static void substringParser(String src)
    {
-     src = this.string;
+     src = string;
      //base case
      if(src.length() == 1)
      {
