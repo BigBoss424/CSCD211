@@ -1,0 +1,33 @@
+    
+    After adding 11 items the list size is 11
+    List is:
+    [60, 90, 20, 40, 0, 30, 80, 100, 70, 0, 50]
+    
+    After removeAll the list size is 7
+    List is:
+    [90, 20, 40, 30, 80, 100, 70]
+    
+    ---List NOT modified--
+    After removeAll the list size is 0
+    List is:
+    List is Empty
+    
+    
+    After adding 11 items the list size is 11
+    List is:
+    [60, 90, 20, 40, 0, 30, 80, 100, 70, 0, 50]
+    
+    ---List NOT modified--
+    After removeAll the list size is 11
+    List is:
+    [60, 90, 20, 40, 0, 30, 80, 100, 70, 0, 50]
+    
+    ---List NOT modified-- (null)
+    null
+    After removeAll the list size is 11
+    List is:
+    [60, 90, 20, 40, 0, 30, 80, 100, 70, 0, 50]
+    
+    Finished
+
+    
