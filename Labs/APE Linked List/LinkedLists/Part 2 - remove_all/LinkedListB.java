@@ -13,15 +13,23 @@
       public boolean removeAll(Comparable [] array)
       {	
    	//  Your code goes here... 
- 
- 
- 
- 
- 
- 
- 
- 
-      
+          Comparable [] array2;
+          array2 = array;
+          if(array.length >= 0)
+          {
+            if(array.length < array2.length)
+            {
+               return true;
+            }
+            else
+            {
+               return false;
+            }
+          }
+          else
+          {
+            throw new NullPointerException("List is empty");
+          }
       }// end removeAll
    
       	
